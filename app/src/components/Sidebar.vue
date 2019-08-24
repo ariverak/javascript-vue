@@ -22,7 +22,6 @@ export default {
 </script>
 <style scoped>
 #sidebar {
-    
     height : 500px;
     width : 200px;
     background-color: #1976d2;
