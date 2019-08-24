@@ -26,7 +26,7 @@ export default {
     height : 500px;
     width : 200px;
     background-color: #1976d2;
-    height: 100vh;
+    height: calc(100vh - 64px);
     padding-top: 64px;
 }
 </style>

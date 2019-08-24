@@ -1,20 +1,24 @@
 <template>
   <div id="app">
     <Sidebar v-show="visible" />
-    <Toolbar />
-    
+    <div class="content">
+      <Toolbar />
+      <Content />
+    </div>
   </div>
 </template>
 
 <script>
 import Toolbar from './components/Toolbar.vue'
 import Sidebar from './components/Sidebar.vue'
+import Content from './components/Content.vue'
 
 export default {
   name: 'app',
   components: {
     Toolbar,
-    Sidebar
+    Sidebar,
+    Content
   },
   data() {
         return {
@@ -28,7 +32,8 @@ export default {
 #app{
   display: inline-flex;
   width: 100%;
-  
 }
-
+.content {
+  width: 100%;
+}
 </style>
