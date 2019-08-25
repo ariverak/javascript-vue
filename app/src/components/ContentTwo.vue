@@ -8,9 +8,8 @@
 </template>
 <script>
 import contentMixin from '../mixins/content'
-
 export default {
-    mixins : [contentMixin]
+   mixins : [contentMixin]
 }
 </script>
 <style scoped>

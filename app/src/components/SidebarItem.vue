@@ -1,5 +1,5 @@
 <template>
-    <div @click="saludar" class="item">
+    <div @click="saludarChild" class="item">
         {{texto}}
     </div>
 </template>
@@ -7,9 +7,9 @@
 export default {
     props : ['texto'],
     methods : {
-        saludar(){
-            alert(this.texto)
-        }
+       saludarChild(){
+           this.$emit('onsaludar')
+       }
     }
 }
 </script>

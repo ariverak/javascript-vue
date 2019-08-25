@@ -2,8 +2,9 @@
   <div id="app">
     <Sidebar v-show="visible" />
     <div class="content">
-      <Toolbar />
-      <Content />
+        <Toolbar />
+        <Content />
+        <ContentTwo />
     </div>
   </div>
 </template>
@@ -12,13 +13,14 @@
 import Toolbar from './components/Toolbar.vue'
 import Sidebar from './components/Sidebar.vue'
 import Content from './components/Content.vue'
-
+import ContentTwo from './components/ContentTwo.vue'
 export default {
   name: 'app',
   components: {
     Toolbar,
     Sidebar,
-    Content
+    Content,
+    ContentTwo
   },
   data() {
         return {

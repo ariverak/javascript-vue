@@ -1,6 +1,6 @@
 <template>
     <div id="sidebar">
-        <Item v-bind:key="i" v-for="(item,i) in items" :texto="item" />
+        <Item @onsaludar="saludar" v-bind:key="i" v-for="(item,i) in items" :texto="item" />
     </div>
 </template>
 <script>
@@ -18,6 +18,14 @@ export default {
             ]
         }
     },
+    methods : {
+        saludar(){
+            this.items.push('Menu4');
+        }
+    },
+    mounted(){
+
+    }
 }
 </script>
 <style scoped>
