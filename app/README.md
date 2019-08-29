@@ -1,1 +1,1 @@
-# ejemplos practicos de conceptos de vuejs
+# vuejs - llevando los conceptos a la practica
