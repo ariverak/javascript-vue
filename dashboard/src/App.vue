@@ -6,9 +6,11 @@
 </template>
 
 <script>
-import Dashboard from './pages/dashboard'
-import Login from './pages/login'
-let isLogged = false;
+import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
+
+let isLogged = !!localStorage.getItem("accessToken");
+
 export default {
   name: 'app',
   components: {
@@ -16,10 +18,20 @@ export default {
     Login
   },
   methods: {
-    loginIn(){
-      this.isLogged = true;
+    async loginIn({username,password}){
+      const {status,data} = await this.$axios.post("http://localhost:3000/login",{
+          username,
+          password
+      }).catch(({response})=>{
+          alert(response.data.message)
+      })
+      if(status === 200){
+        localStorage.setItem("accessToken",data.accessToken)
+        this.isLogged = true;
+      }
     },
     loginOut(){
+      localStorage.removeItem("accessToken")
       this.isLogged = false;
     }
   },
@@ -27,7 +39,7 @@ export default {
     return {
       isLogged : isLogged
     }
-  },
+  }
 }
 </script>
 

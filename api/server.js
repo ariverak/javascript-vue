@@ -3,7 +3,9 @@ const app = express();
 const data = require('./data')
 const PORT = 3000; //definimos el puerto de la app
 const jwt = require('./services/jwt')
+const cors = require('cors')
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/users',function(req,res){
@@ -26,9 +28,9 @@ app.post('/login',function(req,res){
     const user = data.users.find(u => {
         return u.username === username && u.password === password;
     });
-
-    if(!user) return res.send(false);
-
+    
+    if(!user) return res.status(403).send({message : "El usuario o contraseña son invalidos"});
+    
     const accessToken = jwt.generate(user.username);
 
     return res.send({ accessToken }).json()

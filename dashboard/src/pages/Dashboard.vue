@@ -31,6 +31,8 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Application</v-toolbar-title>
+      <div class="push" />
+      <v-btn @click="loginOut">Salir</v-btn>
     </v-app-bar>
 
     <v-content>
@@ -57,11 +59,18 @@
 
 <script>
   export default {
-    props: {
-      source: String,
-    },
     data: () => ({
       drawer: null,
     }),
+    methods: {
+      loginOut(){
+        this.$emit("loginOut")
+      }
+    },
   }
 </script>
+<style scoped>
+.push {
+  flex : 1
+}
+</style>
