@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <dashboard v-if="isLogged" @loginOut="loginOut" />
+    <dashboard v-if="isLogged" @loginOut="loginOut">
+       <router-view />
+    </dashboard>
     <login @loginIn="loginIn" v-else />
   </div>
 </template>
 
 <script>
-import Dashboard from './pages/Dashboard'
+import Dashboard from './components/Dashboard'
 import Login from './pages/Login'
 
 let isLogged = !!localStorage.getItem("accessToken");

@@ -1,7 +1,8 @@
 <template>
     <v-app>
-        <div>
-         <v-col cols="12" sm="6" md="3">
+     <v-card class="card" max-width="344">
+        <v-card-title>Login</v-card-title>
+        <v-col cols="12" sm="12" md="12">
             <v-text-field
                 v-model="username"
                 label="Nombre de Usuario"
@@ -9,7 +10,7 @@
             ></v-text-field>
             </v-col>
 
-            <v-col cols="12" sm="6" md="3">
+            <v-col cols="12" sm="12" md="12">
             <v-text-field
                 v-model="password"
                 type="password"
@@ -17,8 +18,10 @@
                 placeholder="Ingrese su contraseña de usuario aqui"
             ></v-text-field>
             </v-col>
-            <v-btn @click="onLogin" class="primary">Entrar</v-btn>
-        </div>
+            <div>
+                <v-btn class="btn-lgn primary" @click="onLogin" >Entrar</v-btn>
+            </div>
+        </v-card>
     </v-app>
 </template>
 <script>
@@ -42,5 +45,11 @@ export default {
 <style scoped>
     #app {
         padding : 10px;
+    }
+    .card {
+        padding : 15px;
+    }
+    .btn-lgn {
+        margin-left : auto;
     }
 </style>

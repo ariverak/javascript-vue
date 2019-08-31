@@ -5,7 +5,7 @@
       app
     >
       <v-list dense>
-        <v-list-item >
+        <v-list-item to="/" v-ripple >
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
@@ -13,12 +13,12 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item >
+        <v-list-item to="/usuarios" v-ripple >
           <v-list-item-action>
             <v-icon>mdi-contact-mail</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Contact</v-list-item-title>
+            <v-list-item-title>Usuarios</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -30,23 +30,13 @@
       dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>{{title}}</v-toolbar-title>
       <div class="push" />
       <v-btn @click="loginOut">Salir</v-btn>
     </v-app-bar>
 
     <v-content>
-      <v-container
-        class="fill-height"
-        fluid
-      >
-        <v-row
-          align="center"
-          justify="center"
-        >
-          
-        </v-row>
-      </v-container>
+         <slot></slot>
     </v-content>
     <v-footer
       color="indigo"
@@ -61,6 +51,7 @@
   export default {
     data: () => ({
       drawer: null,
+      title : "Javascript + Vuejs"
     }),
     methods: {
       loginOut(){
